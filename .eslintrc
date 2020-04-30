@@ -1,0 +1,39 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }, 
+    "rules": {
+      // disable the rule for all files
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "vars": "all"
+        }
+      ],
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error"
+    },
+    "overrides": [
+      {
+        // enable the rule specifically for TypeScript files
+        "files": ["*.ts", "*.tsx"],
+        "rules": {
+          "@typescript-eslint/explicit-function-return-type": ["error"]
+        }
+      }
+    ]
+}

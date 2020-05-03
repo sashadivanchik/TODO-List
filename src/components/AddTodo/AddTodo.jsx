@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
-import uuid from 'uuid/v4';
 
 const AddTodo = ( props ) => {
 
@@ -10,7 +9,7 @@ const AddTodo = ( props ) => {
   const [ input, setTodoContent ] = useState('');
 
   const handleAddTodo = () => {
-    addTodo(input, uuid());
+    addTodo(input);
     setTodoContent('');
   };
 

@@ -1,31 +1,40 @@
+
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "./actionsTypes";
+import { v4 as uuidv4 } from 'uuid';
 
-type TTodoActions = TAddTodo | TDeleteTodo | TToggleTodo; 
+const idTodo: string = uuidv4();
 
-export interface TAddTodo {
-  type: typeof ADD_TODO;
+export type TodoActions = AddTodo | DeleteTodo | ToggleTodo;
+type ID = string; 
+
+type AddType = 'ADD_TODO'
+type DeleteType = 'DELETE_TODO';
+type ToggleType = 'TOGGLE_TODO';
+
+export type AddTodo = {
+  type: AddType;
   payload: {
-    id: string;
+    id: ID;
     content: string;
     completed: boolean;
   };
 }
 
-export interface TDeleteTodo {
-  type: typeof DELETE_TODO;
+export type DeleteTodo = {
+  type: DeleteType;
   payload: {
-    id: string;
+    id: ID;
   };
 }
 
-export interface TToggleTodo {
-  type: typeof TOGGLE_TODO;
+export type ToggleTodo = {
+  type: ToggleType;
   payload: {
-    id: string;
+    id: ID;
   };
 }
 
-export const addTodo = ( content: string, idTodo: string ): TTodoActions => ({
+export const addTodo = ( content: string ): TodoActions => ({
   type: ADD_TODO,
   payload: {
     id: idTodo,
@@ -34,14 +43,14 @@ export const addTodo = ( content: string, idTodo: string ): TTodoActions => ({
   }
 });
 
-export const deleteTodo = ( id: string ): TTodoActions => ({
+export const deleteTodo = ( id: ID ): TodoActions => ({
   type: DELETE_TODO,
   payload: {
     id
   }
 });
 
-export const toggleTodo = ( id: string ): TTodoActions => ({
+export const toggleTodo = ( id: ID ): TodoActions => ({
   type: TOGGLE_TODO,
   payload: {
     id

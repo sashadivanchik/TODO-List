@@ -1,11 +1,10 @@
 
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "./actionsTypes";
-import { v4 as uuidv4 } from 'uuid';
 
-const idTodo: string = uuidv4();
+let todoId = 0;
 
 export type TodoActions = AddTodo | DeleteTodo | ToggleTodo;
-type ID = string; 
+export type ID = number; 
 
 type AddType = 'ADD_TODO'
 type DeleteType = 'DELETE_TODO';
@@ -37,7 +36,7 @@ export type ToggleTodo = {
 export const addTodo = ( content: string ): TodoActions => ({
   type: ADD_TODO,
   payload: {
-    id: idTodo,
+    id: todoId++,
     content,
     completed: false
   }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import AddTodo from '../AddTodo/AddTodo';
 import VisibilityFilters from '../VisibilityFilters/VisibilityFilters.jsx';
 import { ALL } from '../../redux/actionsTypes';
 import TodoList from '../TodoList/TodoList';
+import AddTodo from '../AddTodo/AddTodo.jsx';
 
 
 const TodoApp = () => {
